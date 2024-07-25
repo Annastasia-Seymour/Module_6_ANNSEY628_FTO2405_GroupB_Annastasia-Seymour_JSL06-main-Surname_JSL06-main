@@ -4,35 +4,46 @@ const menu = {
     MainCourses: ["Margherita Pizza", "Spaghetti Carbonara"],
     Desserts: ["Tiramisu", "Cheesecake"]
 };
+console.log(menu);
 
 // Function to display menu items by category
 function displayMenuItems(menu) {
     // Get the menu container element from the HTML
-        const 
-    // Loop through each category and its items in the menu object
+    const menuContainer = document.getElementById('menu');
+    menuContainer.innerHTML="";
+    /*const heading = document.createElement("h3"); // creates h2 for guardian playlist
+    heading.textContent = "Banana";
+    menuContainer.appendChild(heading);*/
+    
+  // Loop through each category in the menu object
+  for (const category in menu) {
+    if (menu.hasOwnProperty(category)) {
+        // Creates a heading for the category
+        const heading = document.createElement("h2");
+        heading.textContent = category; // Set the text to the category name
+        menuContainer.appendChild(heading); // Append the heading to the menu container
 
-        // Create an element to represent the category
+        // Create an unordered list for the items
+        const itemList = document.createElement("ul");
 
-        // Set the text content of the category element to the category name
+        // Loop through each item in the category
+        for (let i = 0; i < menu[category].length; i++) {
+            // Create a list item for each item
+            const listItem = document.createElement("li");
+            listItem.textContent = menu[category][i]; // Set the text to the item name
+            itemList.appendChild(listItem); // Append the list item to the unordered list
+        }
 
-        // Append the category element to the menu container
-
-        // Create an element to represent a list of items
-
-        // Append a list of items element to the menu container
-
-        // Loop through the items in the category and create list items
-
-            // Create a list item element
-
-            // Set the text content of the list item element to the item name
-
-            // Attach a click event listener to the list item to add it to the order
-
-            // Append the list item to the list of items
-
-            
+        // Append the unordered list to the menu container
+        menuContainer.appendChild(itemList);
+    }
 }
+}
+
+
+//almost forgot to call the function         
+
+displayMenuItems(menu)
 
 // Callback function for adding an item to the order
 function addToOrder(itemName) {
@@ -56,3 +67,4 @@ function initMenuSystem(menu) {
 
 // Start the menu system by calling the init function
 initMenuSystem(menu);
+
