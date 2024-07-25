@@ -12,7 +12,7 @@ const menu = {
         { food: "Tiramisu", price: 60.00 },
         { food: "Cheesecake", price: 60.00 }
     ]
-};
+};//Alot of adjusting because of the price feature , left it in the array because i had no idea how to calculate without it in the array to begin with
 
 console.log(menu);
 
