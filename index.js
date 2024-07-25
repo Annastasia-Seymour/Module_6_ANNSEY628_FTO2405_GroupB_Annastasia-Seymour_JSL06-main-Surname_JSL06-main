@@ -31,6 +31,7 @@ function displayMenuItems(menu) {
             // Create a list item for each item
             const listItem = document.createElement("li");
             listItem.textContent = menu[category][i]; // Set the text to the item name
+            listItem.addEventListener('click', () => addToOrder(menu[category][i])); // Attach event listener
             itemList.appendChild(listItem); // Append the list item to the unordered list
         }
 
@@ -39,14 +40,21 @@ function displayMenuItems(menu) {
     }
 }
 }
-
-
 //almost forgot to call the function         
 
 displayMenuItems(menu)
 
 // Callback function for adding an item to the order
 function addToOrder(itemName) {
+
+    
+        const orderList = document.getElementById('order-items');
+        const orderItem = document.createElement("li");
+        orderItem.textContent = `${itemName.name}`;
+        orderList.appendChild(orderItem);
+
+
+
     // Get the order items list and the order total element from the HTML
 
     // Create a list item for the order
